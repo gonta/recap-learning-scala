@@ -1,5 +1,7 @@
 package com.github.tamaki.study.tamaki.sample
 
+import scala.concurrent.Future
+
 /**
  * Created by tamaki on 2015/02/08.
  */
@@ -8,7 +10,7 @@ object SampleMain {
   def main(args: Array[String]): Unit = {
     println("hello World!")
     val s = "すから"
-    println(s"hello $s")
+    println(s"hello $s") // s""
 
     sample()
     sample(10)
@@ -20,17 +22,16 @@ object SampleMain {
     println(sampleCase(1.5f))
   }
 
-  def sample (num: Int = 1) {
+  def sample (num: Int = 1) { // 引数なしの場合のデフォルト引数
     println(s"num=[$num]")
   }
 
   def sampleCase (in: Any) : String = {
-    in match {
+    in match {//値の判別　型を判定する
       case x: String => s"String=[$x]"
       case y: Int    => s"Int=[${y.toString}]"
       case z: Long   => s"Long=[${z.toString}]"
-      case _  => "Any"
+      case _  => "Any" // default
     }
   }
-
 }
